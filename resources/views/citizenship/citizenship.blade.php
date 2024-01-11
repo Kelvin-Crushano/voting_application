@@ -19,7 +19,7 @@
                                 <hr class="text-secondary mb-3">
                                 <div class="row">
                                     <div class="col">
-                                        <label for="addnameWithInitials">Name with initials</label>
+                                        <label for="addnameWithInitials">Initials</label>
                                         <select id="addnameWithInitials" name="nameWithInitials" class="form-control m-2" required>
                                             <option value="" disabled selected>Name with initials</option>
                                             <option value="Mr">Mr</option>
@@ -222,7 +222,7 @@
 
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary" id="add_citizenship_btn">Add Batch</button>
+                                    <button type="submit" class="btn btn-primary" id="add_citizenship_btn">Add citizenship</button>
                                 </div>
                             </form>
                         </div>
@@ -250,7 +250,7 @@
                                 <hr class="text-secondary mb-3">
                                 <div class="row">
                                     <div class="col">
-                                        <label for="editnameWithInitials">Name with initials</label>
+                                        <label for="editnameWithInitials">Initials</label>
                                         <select id="editnameWithInitials" name="nameWithInitials" class="form-control m-2" required>
                                             <option value="" disabled selected>Name with initials</option>
                                             <option value="Mr">Mr</option>
