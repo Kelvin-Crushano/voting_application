@@ -101,7 +101,7 @@
         <ul class="menu-sub">
           <li class="menu-item">
             <a href="{{ route('citizenship') }}" class="menu-link">
-              <div data-i18n="Without menu">new Citizenship</div>
+              <div data-i18n="Without menu">Citizens</div>
             </a>
           </li>
         </ul>
