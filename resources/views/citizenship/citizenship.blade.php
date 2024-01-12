@@ -467,7 +467,7 @@
             <div class="card shadow">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h3 class="text-gark">Manage Citizenship Details</h3>
-                    <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#addCitizenshipModal"><i class="bi-plus-circle me-2"></i>Citizen</button>
+                    <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#addCitizenshipModal"><i class="bi-plus-circle me-2"></i> + Citizen</button>
                 </div>
                 <div class="card-body" id="show_all_citizenship">
                     <h1 class="text-center text-secondary my-5">Loading...</h1>
