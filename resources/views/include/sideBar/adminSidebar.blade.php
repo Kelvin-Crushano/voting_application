@@ -86,7 +86,7 @@
     <ul class="menu-inner py-1">
       <!-- Dashboard -->
       <li class="menu-item active">
-        <a href="" class="menu-link">
+        <a href="{{route('admin_dashboard')}}" class="menu-link">
           <i class="menu-icon tf-icons bx bx-home-circle"></i>
           <div data-i18n="Analytics">Dashboard</div>
         </a>
@@ -96,18 +96,13 @@
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon tf-icons bx bx-layout"></i>
-          <div data-i18n="Layouts">Lead</div>
+          <div data-i18n="Layouts">Province</div>
         </a>
 
         <ul class="menu-sub">
           <li class="menu-item">
-            <a href="" class="menu-link">
-              <div data-i18n="Without menu">lead</div>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="" class="menu-link">
-              <div data-i18n="Without navbar">import lead</div>
+            <a href="{{ route('province') }}" class="menu-link">
+              <div data-i18n="Without menu">province</div>
             </a>
           </li>
         </ul>
@@ -115,27 +110,29 @@
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon tf-icons bx bx-layout"></i>
-          <div data-i18n="Layouts">Member</div>
+          <div data-i18n="Layouts">District</div>
         </a>
 
         <ul class="menu-sub">
           <li class="menu-item">
-            <a href="" class="menu-link">
-              <div data-i18n="Without menu">Member</div>
+            <a href="{{route('district')  }}" class="menu-link">
+              <div data-i18n="Without menu">district</div>
             </a>
           </li>
         </ul>
       </li>
+
+
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon tf-icons bx bx-layout"></i>
-          <div data-i18n="Layouts">Admin</div>
+          <div data-i18n="Layouts">Divition</div>
         </a>
 
         <ul class="menu-sub">
           <li class="menu-item">
-            <a href="" class="menu-link">
-              <div data-i18n="Without menu">Admin</div>
+            <a href="{{ route("divition") }}" class="menu-link">
+              <div data-i18n="Without menu">divition</div>
             </a>
           </li>
         </ul>
@@ -144,13 +141,13 @@
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon tf-icons bx bx-layout"></i>
-          <div data-i18n="Layouts">Course</div>
+          <div data-i18n="Layouts">Party</div>
         </a>
 
         <ul class="menu-sub">
           <li class="menu-item">
-            <a href="" class="menu-link">
-              <div data-i18n="Without menu">Course</div>
+            <a href="{{ route("party") }}" class="menu-link">
+              <div data-i18n="Without menu">party</div>
             </a>
           </li>
         </ul>
@@ -159,28 +156,13 @@
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon tf-icons bx bx-layout"></i>
-          <div data-i18n="Layouts">User</div>
+          <div data-i18n="Layouts">Candidate</div>
         </a>
 
         <ul class="menu-sub">
           <li class="menu-item">
-            <a href="" class="menu-link">
-              <div data-i18n="Without menu">user</div>
-            </a>
-          </li>
-        </ul>
-      </li>
-
-      <li class="menu-item">
-        <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon tf-icons bx bx-layout"></i>
-          <div data-i18n="Layouts">Batch</div>
-        </a>
-
-        <ul class="menu-sub">
-          <li class="menu-item">
-            <a href="" class="menu-link">
-              <div data-i18n="Without menu">Batch</div>
+            <a href="{{ route("candidate") }}" class="menu-link">
+              <div data-i18n="Without menu">candidate</div>
             </a>
           </li>
         </ul>
