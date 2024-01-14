@@ -5,6 +5,7 @@ use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\CitizenshipController;
 use App\Http\Controllers\DistricController;
 use App\Http\Controllers\DivitionController;
+use App\Http\Controllers\PartyCandidateController;
 use App\Http\Controllers\PartyController;
 use App\Http\Controllers\ProvinceController;
 use Illuminate\Support\Facades\Route;
@@ -82,3 +83,11 @@ Route::get('/candidate_show', [CandidateController::class, 'show'])->name('candi
 Route::get('/candidate_edit', [CandidateController::class, 'edit'])->name('candidate_edit');
 Route::post('/candidate_update', [CandidateController::class, 'update'])->name('candidate_update');
 Route::delete('/candidate_delete', [CandidateController::class, 'delete'])->name('candidate_delete');
+
+//lead_member router information
+Route::get('/candidate_assign', [PartyCandidateController::class, 'index'])->name('candidate_assign');
+Route::get('/candidate_assign_list', [PartyCandidateController::class, 'showMemberAssigned_list'])->name('candidate_assign_list');
+Route::post('/candidate_assign_store', [PartyCandidateController::class, 'store'])->name('candidate_assign_store');
+Route::get('/candidate_assign_edit', [PartyCandidateController::class, 'edit'])->name('candidate_assign_edit');
+Route::post('/candidate_assign_update', [PartyCandidateController::class, 'update'])->name('candidate_assign_update');
+

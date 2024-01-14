@@ -171,13 +171,13 @@
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon tf-icons bx bx-layout"></i>
-          <div data-i18n="Layouts">Lead From</div>
+          <div data-i18n="Layouts">CandidateAssign</div>
         </a>
 
         <ul class="menu-sub">
           <li class="menu-item">
-            <a href="" class="menu-link">
-              <div data-i18n="Without menu">Lead From</div>
+            <a href="{{ route('candidate_assign') }}" class="menu-link">
+              <div data-i18n="Without menu">CandidateAssign</div>
             </a>
           </li>
         </ul>
