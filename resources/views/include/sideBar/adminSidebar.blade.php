@@ -181,6 +181,13 @@
             </a>
           </li>
         </ul>
+        <ul class="menu-sub">
+            <li class="menu-item">
+              <a href="{{ route('candidate_assign_list') }}" class="menu-link">
+                <div data-i18n="Without menu">Candidate Assign List</div>
+              </a>
+            </li>
+          </ul>
       </li>
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">

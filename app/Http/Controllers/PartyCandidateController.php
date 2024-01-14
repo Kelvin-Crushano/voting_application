@@ -15,7 +15,14 @@ class PartyCandidateController extends Controller
         $party = party::all();
         $candidate = candidate::all();
         $party_candidate = party_candidate::all();
-        return view('candidateAssigned.candidateAssigned',['parties' => $party,'candidates' => $candidate,'party_candidates' => $party_candidate]);
+        return view('candidateAssigned.candidateAssigned', ['parties' => $party, 'candidates' => $candidate, 'party_candidates' => $party_candidate]);
+    }
+    public function candidateAssigned_list()
+    {
+        $party = party::all();
+        $candidate = candidate::all();
+        $party_candidate = party_candidate::all();
+        return view('candidateAssigned.candidateAssignedList', ['parties' => $party, 'candidates' => $candidate, 'party_candidates' => $party_candidate]);
     }
 
     public function store(Request $request)
@@ -56,6 +63,23 @@ class PartyCandidateController extends Controller
         // Insert multiple records at once
         party_candidate::insert($partyCandidates);
         return redirect('/candidate_assign');
+    }
+    public function edit(Request $request)
+    {
+        $id = $request->id;
+        $partyCandidate = party_candidate::find($id);
+        return response()->json($partyCandidate);
+    }
 
-}
+    public function update(Request $request)
+    {
+
+        $partyCandidate = party_candidate::find($request->edit_party_id);
+        $partyCandidateData = ['party_id' => $request->party_id];
+
+        $partyCandidate->update($partyCandidateData);
+        return response()->json([
+            'status' => 200,
+        ]);
+    }
 }

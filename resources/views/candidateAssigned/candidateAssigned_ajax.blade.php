@@ -13,20 +13,32 @@
 <script>
  $(function() {
 
-
     fetchAllAssigned();
-
+    fetchAllAssignCandidateList() ;
 function fetchAllAssigned() {
     $.ajax({
         url: '{{ route('candidate_assign') }}',
         method: 'get',
         success: function (response) {
-            $("#table").DataTable({
+            $("#table1").DataTable({
                 order: [0, 'desc']
             });
         }
     });
 }
+
+
+      function fetchAllAssignCandidateList() {
+        $.ajax({
+          url: '{{ route('candidate_assign') }}',
+          method: 'get',
+          success: function(response) {
+            $("#table2").DataTable({
+              order: [0, 'desc']
+            });
+          }
+        });
+      }
 
 $("#candidate_aasign_form").submit(function(e) {
     e.preventDefault();
@@ -49,17 +61,20 @@ $("#candidate_aasign_form").submit(function(e) {
     } else {
         // If members are selected, proceed with the form submission using Ajax
         $("#Assign_btn").text('Assigning...'); // Change the button text to "Assigning..."
+
         $.ajax({
             type: 'POST',
             url: $(this).attr('action'),
             data: $(this).serialize(),
             success: function(data) {
+
                 // Form submission was successful, show a success message
                 Swal.fire({
                     icon: "success",
                     title: "Candidate assigned to Party successfully.",
                     showConfirmButton: false,
-                    timer: 1500
+                    timer: 1500,
+
                 });
 
                 // Reset the form and hide the modal
@@ -81,10 +96,64 @@ $("#candidate_aasign_form").submit(function(e) {
                 $('#candidate_aasign_form')[0].reset();
                 $("#candidateAssignModal").modal('hide');
                 fetchAllAssigned();
+
             }
         });
     }
 });
+
+$(document).on('click', '.editIcon', function(e) {
+  e.preventDefault();
+  let id = $(this).closest('td').data('id');
+
+  $.ajax({
+    url: '{{ route('candidate_assign_edit') }}',
+    method: 'get',
+    data: {
+      id: id,
+      _token: '{{ csrf_token() }}'
+    },
+    success: function(response) {
+      // Log the response data to the console
+      console.log('Response Data:', response);
+
+      // Set the values of the input fields
+      $("#edit_party_assign_id").val(response.party_id);
+      $("#edit_party_id").val(response.id);
+    }
+  });
+});
+
+// update employee ajax request
+$("#edit_party_assign_form").submit(function(e) {
+    e.preventDefault();
+    const fd = new FormData(this);
+    $("#edit_party_assign_btn").text('Updating...');
+    $.ajax({
+      url: '{{ route('candidate_assign_update') }}',
+      method: 'post',
+      data: fd,
+      cache: false,
+      contentType: false,
+      processData: false,
+      dataType: 'json',
+      success: function(response) {
+        if (response.status == 200) {
+          Swal.fire({
+                icon: "success",
+                title: " Candidate re-assigned to Party successfully!",
+                showConfirmButton: false,
+                timer: 1500
+                     });
+        }
+        $("#edit_party_assign_btn").text('Update member');
+        $("#edit_party_assign_form")[0].reset();
+        $("#partyUpdateModal").modal('hide');
+
+        fetchAllAssignCandidateList() ;
+      }
+    });
+  });
 
 });
 

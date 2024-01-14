@@ -86,7 +86,7 @@ Route::delete('/candidate_delete', [CandidateController::class, 'delete'])->name
 
 //lead_member router information
 Route::get('/candidate_assign', [PartyCandidateController::class, 'index'])->name('candidate_assign');
-Route::get('/candidate_assign_list', [PartyCandidateController::class, 'showMemberAssigned_list'])->name('candidate_assign_list');
+Route::get('/candidate_assign_list', [PartyCandidateController::class, 'candidateAssigned_list'])->name('candidate_assign_list');
 Route::post('/candidate_assign_store', [PartyCandidateController::class, 'store'])->name('candidate_assign_store');
 Route::get('/candidate_assign_edit', [PartyCandidateController::class, 'edit'])->name('candidate_assign_edit');
 Route::post('/candidate_assign_update', [PartyCandidateController::class, 'update'])->name('candidate_assign_update');

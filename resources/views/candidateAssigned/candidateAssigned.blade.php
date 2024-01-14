@@ -21,7 +21,7 @@
 
                             <div class="table-responsive">
                                 @if (count($candidates) > 0)
-                                <table id="table" class="table table-striped">
+                                <table id="table1" class="table table-striped">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
