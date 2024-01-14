@@ -141,7 +141,7 @@ class GsController extends Controller
                             </button>
                             <div class="dropdown-menu">
                                 <a href="javascript:void(0);" id="' . $gs->id . '" class="dropdown-item editIcon" data-bs-toggle="modal" data-bs-target="#editGsModal"><i class="bx bx-edit-alt me-2"></i> Edit</a>
-                                <a href="javascript:void(0);" id="' . $gs->id . '" class="dropdown-item editIcon2" data-bs-toggle="modal" data-bs-target="#editGsModal2"><i class="bx bx-edit-alt me-2"></i> Assign</a>
+                                <a href="javascript:void(0);" id="' . $gs->id . '" class="dropdown-item editIcon2" data-bs-toggle="modal" data-bs-target="#editGsModal2"><i class="tf-icons bx bx-layout me-2"></i> Assign</a>
                                 <a class="dropdown-item mx-1 deleteIcon" id="' . $gs->id . '" href="javascript:void(0);"><i class="bx bx-trash me-2"></i> Delete</a>
                             </div>
                         </div>

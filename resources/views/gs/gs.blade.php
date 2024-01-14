@@ -3,7 +3,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12 col-md-12">
-            <h4 class="fw-bold py-3 my-3"><span class="text-muted fw-light">party /</span> <a href=" {{ route('admin_dashboard') }}">Home</a></h4>
+            <h4 class="fw-bold py-3 my-3"><span class="text-muted fw-light">gs /</span> <a href=" {{ route('admin_dashboard') }}">Home</a></h4>
             {{-- add new gs modal start --}}
             <div class="modal fade" id="addGsModal" tabindex="-1" aria-labelledby="gsModalLabel" data-bs-backdrop="static" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-scrollable  modal-dialog-centered">
@@ -161,7 +161,7 @@
         </div>
 
         <div class="col-md-12">
-            {{-- edit member modal start --}}
+            {{-- edit gs2 modal start --}}
             <div class="modal fade" id="editGsModal2" tabindex="-1" aria-labelledby="editGsModalLabel" data-bs-backdrop="static" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
                     <div class="modal-content">
@@ -211,7 +211,7 @@
 
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary" id="edit_gs_btn2">Add</button>
+                                    <button type="submit" class="btn btn-primary" id="edit_gs_btn2">Add gs</button>
                                 </div>
                             </form>
                         </div>
