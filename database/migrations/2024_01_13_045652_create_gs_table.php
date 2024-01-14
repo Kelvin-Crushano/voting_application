@@ -23,9 +23,13 @@ return new class extends Migration
             $table->string('description');
             $table->string('gsDivition');
             $table->string('image');
-            $table->string('workingProvince');
-            $table->string('workingDistrict');
-            $table->string('workingDivition');
+            $table->unsignedBigInteger('workingProvince')->nullable(); // Make it nullable
+            $table->unsignedBigInteger('workingDistrict')->nullable(); // Make it nullable
+            $table->unsignedBigInteger('workingDivition')->nullable(); // Make it nullable
+
+            $table->foreign('workingProvince')->references('id')->on('provinces')->onDelete('cascade');
+            $table->foreign('workingDistrict')->references('id')->on('districs')->onDelete('cascade');
+            $table->foreign('workingDivition')->references('id')->on('divitions')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -5,6 +5,7 @@ use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\CitizenshipController;
 use App\Http\Controllers\DistricController;
 use App\Http\Controllers\DivitionController;
+use App\Http\Controllers\GsController;
 use App\Http\Controllers\PartyCandidateController;
 use App\Http\Controllers\PartyController;
 use App\Http\Controllers\ProvinceController;
@@ -91,3 +92,12 @@ Route::post('/candidate_assign_store', [PartyCandidateController::class, 'store'
 Route::get('/candidate_assign_edit', [PartyCandidateController::class, 'edit'])->name('candidate_assign_edit');
 Route::post('/candidate_assign_update', [PartyCandidateController::class, 'update'])->name('candidate_assign_update');
 
+//lead_member router information
+Route::get('/gs', [GsController::class, 'index'])->name('gs');
+Route::get('/gs_show', [GsController::class, 'show'])->name('gs_show');
+Route::post('/gs_store', [GsController::class, 'store'])->name('gs_store');
+Route::get('/gs_edit', [GsController::class, 'edit'])->name('gs_edit');
+Route::get('/gs_edit2', [GsController::class, 'edit2'])->name('gs_edit2');
+Route::post('/gs_update', [GsController::class, 'update'])->name('gs_update');
+Route::post('/gs_update2', [GsController::class, 'update2'])->name('gs_update2');
+Route::delete('/gs_delete', [GsController::class, 'delete'])->name('gs_delete');

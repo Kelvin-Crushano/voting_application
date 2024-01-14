@@ -192,13 +192,13 @@
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon tf-icons bx bx-layout"></i>
-          <div data-i18n="Layouts">Status</div>
+          <div data-i18n="Layouts">Gs</div>
         </a>
 
         <ul class="menu-sub">
           <li class="menu-item">
-            <a href="" class="menu-link">
-              <div data-i18n="Without menu">Status</div>
+            <a href="{{ route('gs') }}" class="menu-link">
+              <div data-i18n="Without menu">gs</div>
             </a>
           </li>
         </ul>
