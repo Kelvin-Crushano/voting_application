@@ -177,7 +177,7 @@
 
                                 <div class="row">
                                     <div class="col-md-12 mb-4">
-                                        <select class="form-select" aria-label="Default select example" autofocus id="editworkingProvince" name="workingProvince">
+                                        <select class="form-select" aria-label="Default select example" autofocus id="editworkingProvince" name="workingProvince" required>
                                             <option value="" disabled selected>
                                                 <---Select province-->
                                             </option>

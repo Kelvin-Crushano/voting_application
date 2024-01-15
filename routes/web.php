@@ -9,6 +9,7 @@ use App\Http\Controllers\GsController;
 use App\Http\Controllers\PartyCandidateController;
 use App\Http\Controllers\PartyController;
 use App\Http\Controllers\ProvinceController;
+use App\Http\Controllers\VoteController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -31,10 +32,14 @@ Route::fallback(function () {
     return view('error_page.error_page_404');
 });
 
-Route::get('/', [AuthController::class, 'login'])->name('login');
+Route::get('/', [AuthController::class, 'admin_login'])->name('admin_login');
+Route::get('admin_register', [AuthController::class, 'admin_register'])->name('admin_register');
 Route::get('/gs_dashboard', [AuthController::class, 'gs_dashboard'])->name('gs_dashboard');
 Route::get('/admin_dashboard', [AuthController::class, 'admin_dashboard'])->name('admin_dashboard');
+Route::get('/commissioner_dashboard', [AuthController::class, 'commissioner_dashboard'])->name('commissioner_dashboard');
 
+
+Route::post('vote_store', [VoteController::class, 'store'])->name('vote_store');
 
 // citizenship routing
 Route::get('/citizenship', [CitizenshipController::class, 'index'])->name('citizenship');;

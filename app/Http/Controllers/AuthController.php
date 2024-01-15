@@ -15,8 +15,17 @@ class AuthController extends Controller
         return view('adminDashboard.admin_dashboard');
     }
 
-    public function login()
+    public function commissioner_dashboard()
     {
-        return view('login.login');
+        return view('commissionerDashboard.commissioner_dashboard');
     }
+    public function admin_login()
+    {
+        return view('authentication.admin_auth.login.login');
+    }
+    public function admin_register()
+    {
+        return view('authentication.admin_auth.register.register');
+    }
+
 }
