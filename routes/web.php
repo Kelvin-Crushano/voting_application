@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\CitizenshipController;
@@ -38,7 +39,17 @@ Route::get('/gs_dashboard', [AuthController::class, 'gs_dashboard'])->name('gs_d
 Route::get('/admin_dashboard', [AuthController::class, 'admin_dashboard'])->name('admin_dashboard');
 Route::get('/commissioner_dashboard', [AuthController::class, 'commissioner_dashboard'])->name('commissioner_dashboard');
 
+//admin
+Route::get('login_user', [AdminController::class, 'login_user'])->name('login_user');
 
+//voting
+Route::get('voting', [VoteController::class, 'index'])->name('voting');
+Route::get('party1', [VoteController::class, 'party1'])->name('party1');
+Route::get('candidate1/{id}', [VoteController::class, 'candidate1'])->name('candidate1');
+Route::get('party2', [VoteController::class, 'party2'])->name('party2');
+Route::get('candidate2', [VoteController::class, 'candidate2'])->name('candidate2');
+Route::get('party3', [VoteController::class, 'party3'])->name('party3');
+Route::get('candidate3', [VoteController::class, 'candidate3'])->name('candidate3');
 Route::post('vote_store', [VoteController::class, 'store'])->name('vote_store');
 
 // citizenship routing

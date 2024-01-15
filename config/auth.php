@@ -40,6 +40,26 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admin_users',
+        ],
+        'gs' => [
+            'driver' => 'session',
+            'provider' => 'gs_users',
+        ],
+        'commissioner' => [
+            'driver' => 'session',
+            'provider' => 'commissioner_users',
+        ],
+        'citizen' => [
+            'driver' => 'session',
+            'provider' => 'citizen_users',
+        ],
+        'vote' => [
+            'driver' => 'session',
+            'provider' => 'vote_users',
+        ],
     ],
 
     /*
@@ -62,7 +82,28 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => App\Models\Admin::class,
+        ],
+        'admin_users' => [
+            'driver' => 'eloquent',
+             'model' => App\Models\Commissioner::class,
+        ],
+
+        'gs_users' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\gs::class,
+        ],
+        'commissioner_users' => [
+            'driver' => 'eloquent',
+             'model' => App\Models\Commissioner::class,
+        ],
+        'citizen_users' => [
+            'driver' => 'eloquent',
+             'model' => App\Models\citizenship::class,
+        ],
+        'vote_users' => [
+            'driver' => 'eloquent',
+             'model' => App\Models\vote::class,
         ],
 
         // 'users' => [

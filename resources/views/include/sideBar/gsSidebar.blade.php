@@ -114,7 +114,7 @@
 
         <ul class="menu-sub">
           <li class="menu-item">
-            <a href="" data-bs-toggle="modal" data-bs-target="#votingModal" class="menu-link">
+            <a href="{{ route('voting') }}"  class="menu-link">
               <div data-i18n="Without menu">voting</div>
             </a>
           </li>
@@ -122,33 +122,3 @@
       </li>
     </ul>
   </aside>
-  <div class="modal fade" id="votingModal" tabindex="-1" aria-labelledby="votingModalLabel" data-bs-backdrop="static" aria-hidden="true">
-    <div class="modal-dialog  modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="votingModalLabel">Register the vote</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body p-4 bg-light">
-                <form action="#" method="POST" id="add_voting_form" enctype="multipart/form-data">
-                    @csrf
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <label for="addcitizenNic">Nic</label>
-                            <input type="text" id="addcitizenNic" name="citizen_nic" class="form-control m-2" placeholder="123456789v" required>
-                        </div>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary" id="add_vote_btn">Check</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-{{-- this is ajax script coding --}}
-@include('voting.voting_ajax')

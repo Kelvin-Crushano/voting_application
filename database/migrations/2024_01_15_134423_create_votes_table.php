@@ -13,27 +13,16 @@ return new class extends Migration
     {
         Schema::create('votes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('citizen_nic')->nullable();
-            $table->unsignedBigInteger('party_no1')->nullable();
-            $table->unsignedBigInteger('candidate_no1')->nullable();
-            $table->unsignedBigInteger('party_no2')->nullable();
-            $table->unsignedBigInteger('candidate_no2')->nullable();
-            $table->unsignedBigInteger('party_no3')->nullable();
-            $table->unsignedBigInteger('candidate_no3')->nullable();
-            $table->unsignedBigInteger('gsProvince')->nullable();
-            $table->unsignedBigInteger('gsDistrict')->nullable();
-            $table->unsignedBigInteger('gsDivition')->nullable();
-
-            $table->foreign('citizen_nic')->references('id')->on('citizenships')->onDelete('cascade');
-            $table->foreign('party_no1')->references('id')->on('parties')->onDelete('cascade');
-            $table->foreign('candidate_no1')->references('id')->on('candidates')->onDelete('cascade');
-            $table->foreign('party_no2')->references('id')->on('parties')->onDelete('cascade');
-            $table->foreign('candidate_no2')->references('id')->on('candidates')->onDelete('cascade');
-            $table->foreign('party_no3')->references('id')->on('parties')->onDelete('cascade');
-            $table->foreign('candidate_no3')->references('id')->on('candidates')->onDelete('cascade');
-            $table->foreign('gsProvince')->references('id')->on('provinces')->onDelete('cascade');
-            $table->foreign('gsDistrict')->references('id')->on('districs')->onDelete('cascade');
-            $table->foreign('gsDivition')->references('id')->on('divitions')->onDelete('cascade');
+            $table->string('citizen_nic')->nullable();
+            $table->string('party_no1')->nullable();
+            $table->string('candidate_no1')->nullable();
+            $table->string('party_no2')->nullable();
+            $table->string('candidate_no2')->nullable();
+            $table->string('party_no3')->nullable();
+            $table->string('candidate_no3')->nullable();
+            $table->string('gsProvince')->nullable();
+            $table->string('gsDistrict')->nullable();
+            $table->string('gsDivition')->nullable();
 
             $table->timestamps();
         });
