@@ -10,7 +10,12 @@ class DistricController extends Controller
 {
     public function index()
     {
-        return view('district.district');
+        if(session('admin')){
+            return view('district.district');
+        }else{
+            return redirect('/');
+        }
+        
     }
 
     public function store(Request $request)

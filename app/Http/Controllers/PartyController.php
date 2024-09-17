@@ -10,7 +10,11 @@ class PartyController extends Controller
 {
     public function index()
     {
-        return view('party.party');
+        if(session('admin')){
+            return view('party.party');
+        }else{
+            return redirect('/');
+        }
     }
 
     public function store(Request $request)

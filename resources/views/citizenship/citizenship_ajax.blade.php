@@ -39,7 +39,7 @@
             $("#add_citizenship_btn").text('Add Batch');
             $("#add_citizenship_form")[0].reset(); // Reset the form
             $("#addCitizenshipModal").modal('hide');
-
+            console.log(response);
           }
         });
       });
@@ -77,33 +77,13 @@ $(document).on('click', '.editIcon', function(e) {
       $("#editnameWithInitials").val(response.nameWithInitials);
       $("#editfullName").val(response.fullName);
       $("#editaddressInSrilanka").val(response.addressInSrilanka);
-      $("#editaddressInForeign").val(response.addressInForeign);
-      $("#editemail").val(response.email);
       $("#editcontactNo").val(response.contactNo);
       $("#editdob").val(response.dob);
-      $("#editpob").val(response.pob);
       $("#editbirthNo").val(response.birthNo);
       $("#editdistrict").val(response.district);
-      $("#editnationality").val(response.nationality);
       $("#editnicNo").val(response.nicNo);
       $("#editsex").val(response.sex);
-      $("#editspouseName").val(response.spouseName);
-      $("#editnationalityOfSpouse").val(response.nationalityOfSpouse);
-      $("#editfatherName").val(response.fatherName);
-      $("#editfatherDate_dob").val(response.fatherDate_dob);
-      $("#editfatherDate_pob").val(response.fatherDate_pob);
-      $("#editmotherName").val(response.motherName);
-      $("#editmotherDate_dob").val(response.motherDate_dob);
-      $("#editmotherDate_pob").val(response.motherDate_pob);
-      $("#editfatherCertificateNo").val(response.fatherCertificateNo);
-      $("#editfatherDateofIssue").val(response.fatherDateofIssue);
-      $("#editmotherCertificateNo").val(response.motherCertificateNo);
-      $("#editmotherDateofIssue").val(response.motherDateofIssue);
-      $("#editpasswordNumber").val(response.passwordNumber);
-      $("#editpasswordDateIssue").val(response.passwordDateIssue);
-      $("#editpasswordPlaceIssue").val(response.passwordPlaceIssue);
       $("#editcountry").val(response.country);
-      $("#editdateGranted").val(response.dateGranted);
       $("#edit_citizenship_id").val(response.id);
     }
   });

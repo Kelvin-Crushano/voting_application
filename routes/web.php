@@ -25,32 +25,47 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::fallback(function () {
     return view('error_page.error_page_404');
 });
 
-Route::get('/', [AuthController::class, 'admin_login'])->name('admin_login');
-Route::get('admin_register', [AuthController::class, 'admin_register'])->name('admin_register');
+Route::get('login_user', [AdminController::class, 'login_user'])->name('login_user');
+Route::any('/admin_login', [AuthController::class, 'admin_login'])->name('admin_login');
+Route::any('/admin_login_system', [AuthController::class, 'admin_login_system'])->name('admin_login_system');
+Route::any('/gs_login', [AuthController::class, 'gs_login'])->name('gs_login');
+Route::post('/gs_login_system', [AuthController::class, 'gs_login_system'])->name('gs_login_system');
+// Route::any('admin_register', [AuthController::class, 'admin_register'])->name('admin_register');
 Route::get('/gs_dashboard', [AuthController::class, 'gs_dashboard'])->name('gs_dashboard');
 Route::get('/admin_dashboard', [AuthController::class, 'admin_dashboard'])->name('admin_dashboard');
-Route::get('/commissioner_dashboard', [AuthController::class, 'commissioner_dashboard'])->name('commissioner_dashboard');
+// Route::get('/commissioner_dashboard', [AuthController::class, 'commissioner_dashboard'])->name('commissioner_dashboard');
+Route::post('/gs_logout', [AuthController::class, 'gs_logout'])->name('gs_logout');
+Route::post('/admin_logout', [AuthController::class, 'admin_logout'])->name('admin_logout');
+
+// Route::group(['middleware' => 'auth:gs_users'], function () {
+//     Route::get('/gs_dashboard', [AuthController::class, 'gs_dashboard'])->name('gs_dashboard');
+// });
+
+// Route::group(['middleware' => 'web'], function () {
+//     Route::get('/voting', 'VoteController@index')->name('voting');
+//     Route::get('/gs_dashboard', 'AuthController@gs_dashboard')->name('gs_dashboard');
+//     Route::get('/admin_dashboard', 'AuthController@commissioner_dashboard')->name('admin_dashboard');
+// });
 
 //admin
-Route::get('login_user', [AdminController::class, 'login_user'])->name('login_user');
 
 //voting
 Route::get('voting', [VoteController::class, 'index'])->name('voting');
 Route::get('party1', [VoteController::class, 'party1'])->name('party1');
-Route::get('candidate1/{id}', [VoteController::class, 'candidate1'])->name('candidate1');
+Route::any('/candidate1/{id}', [VoteController::class, 'candidate1'])->name('candidate1');
 Route::get('party2', [VoteController::class, 'party2'])->name('party2');
 Route::get('candidate2', [VoteController::class, 'candidate2'])->name('candidate2');
 Route::get('party3', [VoteController::class, 'party3'])->name('party3');
 Route::get('candidate3', [VoteController::class, 'candidate3'])->name('candidate3');
-Route::post('vote_store', [VoteController::class, 'store'])->name('vote_store');
+Route::post('/vote_store', [VoteController::class, 'store'])->name('vote_store');
 
 // citizenship routing
 Route::get('/citizenship', [CitizenshipController::class, 'index'])->name('citizenship');;
@@ -117,3 +132,7 @@ Route::get('/gs_edit2', [GsController::class, 'edit2'])->name('gs_edit2');
 Route::post('/gs_update', [GsController::class, 'update'])->name('gs_update');
 Route::post('/gs_update2', [GsController::class, 'update2'])->name('gs_update2');
 Route::delete('/gs_delete', [GsController::class, 'delete'])->name('gs_delete');
+
+//votecounts
+Route::get('/partyVoteCount', [VoteController::class, 'partyVoteCount'])->name('partyVoteCount');
+Route::get('/candidateVoteCount', [VoteController::class, 'candidateVoteCount'])->name('candidateVoteCount');

@@ -9,7 +9,11 @@ class DivitionController extends Controller
 {
     public function index()
     {
-        return view('divition.divition');
+        if(session('admin')){
+            return view('divition.divition');
+        }else{
+            return redirect('/');
+        }
     }
 
     public function store(Request $request)

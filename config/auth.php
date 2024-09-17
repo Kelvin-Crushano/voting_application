@@ -44,7 +44,7 @@ return [
             'driver' => 'session',
             'provider' => 'admin_users',
         ],
-        'gs' => [
+        'gs_users' => [
             'driver' => 'session',
             'provider' => 'gs_users',
         ],
@@ -86,7 +86,7 @@ return [
         ],
         'admin_users' => [
             'driver' => 'eloquent',
-             'model' => App\Models\Commissioner::class,
+             'model' => App\Models\User::class,
         ],
 
         'gs_users' => [

@@ -15,14 +15,22 @@ class PartyCandidateController extends Controller
         $party = party::all();
         $candidate = candidate::all();
         $party_candidate = party_candidate::all();
-        return view('candidateAssigned.candidateAssigned', ['parties' => $party, 'candidates' => $candidate, 'party_candidates' => $party_candidate]);
+        if(session('admin')){
+            return view('candidateAssigned.candidateAssigned', ['parties' => $party, 'candidates' => $candidate, 'party_candidates' => $party_candidate]);
+        }else{
+            return redirect('/');
+        }
     }
     public function candidateAssigned_list()
     {
         $party = party::all();
         $candidate = candidate::all();
         $party_candidate = party_candidate::all();
-        return view('candidateAssigned.candidateAssignedList', ['parties' => $party, 'candidates' => $candidate, 'party_candidates' => $party_candidate]);
+        if(session('admin')){
+            return view('candidateAssigned.candidateAssignedList', ['parties' => $party, 'candidates' => $candidate, 'party_candidates' => $party_candidate]);
+        }else{
+            return redirect('/');
+        }
     }
 
     public function store(Request $request)

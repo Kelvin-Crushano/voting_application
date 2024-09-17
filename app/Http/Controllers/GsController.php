@@ -18,7 +18,11 @@ class GsController extends Controller
         $province = province::all();
         $distric = distric::all();
         $divition = divition::all();
-        return view('gs.gs', ['province' => $province, 'distric' => $distric, 'divition' => $divition]);
+        if(session('admin')){
+            return view('gs.gs', ['province' => $province, 'distric' => $distric, 'divition' => $divition]);
+        }else{
+            return redirect('/');
+        }
 
     }
 
@@ -68,7 +72,6 @@ class GsController extends Controller
                         <th>Address</th>
                         <th>Phone No</th>
                         <th>Email</th>
-                        <th>Password</th>
                         <th>Description</th>
                         <th>GS Division</th>
                         <th>GS Working Province</th>
@@ -84,7 +87,6 @@ class GsController extends Controller
                 $output .= '<tr>
                     <td>' . $gsID . '</td>
                     <td><img src="storage/images/admin_images/' . $gs->image . '" width="50" class="rounded-circle"></td>
-                    <td>' . $gs->code . '</td>
                     <td>' . $gs->firstName . '</td>
                     <td>' . $gs->lastName . '</td>
                     <td>' . $gs->address . '</td>
@@ -92,7 +94,6 @@ class GsController extends Controller
                     <td>' . $gs->email . '</td>
                     <td>' . $gs->description . '</td>
                     <td>' . $gs->gsDivition . '</td>
-
                     <td>';
 
                     foreach ($provinces as $province) {
@@ -102,37 +103,34 @@ class GsController extends Controller
                             break; // Exit the loop once a match is found
                         }
                     }
+                    if (!isset($provinceFound)) {
+                        $output .= '<span style="color: red;">None</span>';
+                    }
+                    $output .= '</td><td>';
 
-                            if (!isset($provinceFound)) {
-                                $output .= '<span style="color: red;">None</span>';
-                            }
+                    foreach ($districts as $district) {
+                        if ($district->id == $gs->workingDistrict) {
+                            $output .= $district->name;
+                            $districtFound = true;
+                            break;
+                        }
+                    }
+                    if (!isset($districtFound)) {
+                        $output .= '<span style="color: red;">None</span>';
+                    }
+                    $output .= '</td><td>';
 
-                            $output .= '</td><td>';
-
-                            foreach ($districts as $district) {
-                                if ($district->id == $gs->workingDistrict) {
-                                    $output .= $district->name;
-                                    $districtFound = true;
-                                    break;
-                                }
-                            }
-                            if (!isset($districtFound)) {
-                                $output .= '<span style="color: red;">None</span>';
-                            }
-                            $output .= '</td><td>';
-
-                            foreach ($divisions as $division) {
-                                if ($division->id == $gs->workingDivition) {
-                                    $output .= $division->name;
-                                    $divisionFound = true;
-                                    break;
-                                }
-                            }
-
-                            if (!isset($divisionFound)) {
-                                $output .= '<span style="color: red;">None</span>';
-                            }
-                            $output .= '</td>
+                    foreach ($divisions as $division) {
+                        if ($division->id == $gs->workingDivition) {
+                            $output .= $division->name;
+                            $divisionFound = true;
+                            break;
+                        }
+                    }
+                    if (!isset($divisionFound)) {
+                        $output .= '<span style="color: red;">None</span>';
+                    }
+                    $output .= '</td>
                     <td>
 
                         <div class="dropdown">

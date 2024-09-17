@@ -83,6 +83,7 @@ $("#candidate_aasign_form").submit(function(e) {
 
                 // Change the button text to "Assigned"
                 $('#Assign_btn').text('Assigned');
+                fetchAllAssignCandidateList()
 
                 // You can perform any other actions here
             },

@@ -34,20 +34,14 @@
                                     </div>
                                 </div>
 
+                                <input type="hidden" id="divition_id" name="divition_id" class="form-control m-2" value="{{Auth::guard('gs_users')->user()->workingDivition}}" required>
+
                                 <p class="mt-4 text-warning">Contact Details:</p>
                                 <hr class="text-secondary mb-3">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label for="addaddressInSrilanka">Address (Sri Lanka)</label>
                                         <input type="text" id="addaddressInSrilanka" name="addressInSrilanka" class="form-control m-2" placeholder="colombo-05" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="addaddressInForeign">Address (Foreign)</label>
-                                        <input type="text" id="addaddressInForeign" name="addressInForeign" class="form-control m-2" placeholder="canada" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="addemail">Email</label>
-                                        <input type="text" id="addemail" name="email" class="form-control m-2" placeholder="john@gmail.com" required>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="addcontactNo">Contact</label>
@@ -60,10 +54,6 @@
                                     <div class="col-md-3">
                                         <label for="adddob">Date of birth</label>
                                         <input type="date" id="adddob" name="dob" class="form-control m-2" placeholder="colombo-05" required>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label for="addpob">Place of birth</label>
-                                        <input type="text" id="addpob" name="pob" class="form-control m-2" placeholder="batticaloa" required>
                                     </div>
                                     <div class="col-md-2">
                                         <label for="addbirthNo">Birth No</label>
@@ -104,10 +94,6 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <label for="addnationality">Nationality</label>
-                                        <input type="text" id="addnationality" name="nationality" class="form-control m-2" placeholder="srilanken" required>
-                                    </div>
-                                    <div class="col-md-4">
                                         <label for="addnicNo">NIC (if available)</label>
                                         <input type="text" id="addnicNo" name="nicNo" class="form-control m-2" placeholder="12345678v" required>
                                     </div>
@@ -120,106 +106,6 @@
                                         </select>
                                     </div>
                                 </div>
-                                <p class="mt-4 text-warning">If married:</p>
-                                <hr class="text-secondary mb-3">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label for="addspouseName">Spouse's Name</label>
-                                        <input type="text" id="addspouseName" name="spouseName" class="form-control m-2" placeholder="john" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="addnationalityOfSpouse">Nationality of the Spouse</label>
-                                        <input type="text" id="addnationalityOfSpouse" name="nationalityOfSpouse" class="form-control m-2" placeholder="canadian" required>
-                                    </div>
-
-                                </div>
-                                <p class="mt-4 text-warning">Details of applicant's parents:</p>
-                                <hr class="text-secondary mb-3">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <label for="addfatherName">Father's Name</label>
-                                        <input type="text" id="addfatherName" name="fatherName" class="form-control m-2" placeholder="jack" required>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label for="addfatherDate_bod">Date of birth</label>
-                                        <input type="date" id="addfatherDate_bod" name="fatherDate_dob" class="form-control m-2" placeholder="canada" required>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label for="addfatherDate_pob">Date of place</label>
-                                        <input type="text" id="addfatherDate_pob" name="fatherDate_pob" class="form-control m-2" placeholder="batticaloa" required>
-                                    </div>
-
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <label for="addmotherName">Mother's Name</label>
-                                        <input type="text" id="addmotherName" name="motherName" class="form-control m-2" placeholder="rose" required>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label for="addmotherDate_dob">Date of birth</label>
-                                        <input type="date" id="addmotherDate_dob" name="motherDate_dob" class="form-control m-2" placeholder="canada" required>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label for="addmotherDate_pob">Date of place</label>
-                                        <input type="text" id="addmotherDate_pob" name="motherDate_pob" class="form-control m-2" placeholder="canada" required>
-                                    </div>
-
-                                </div>
-                                <p class="mt-4 text-warning">If applicant's parents are citizens of sri lanka by registration:</p>
-                                <hr class="text-secondary mb-3">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label for="addfatherCertificateNo">Father certification No</label>
-                                        <input type="text" id="addfatherCertificateNo" name="fatherCertificateNo" class="form-control m-2" placeholder="1234" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="addfatherDateofIssue">Date of Issue </label>
-                                        <input type="date" id="addfatherDateofIssue" name="fatherDateofIssue" class="form-control m-2" placeholder="canada" required>
-                                    </div>
-
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label for="addmotherCertificateNo">Mother certification No</label>
-                                        <input type="text" id="addmotherCertificateNo" name="motherCertificateNo" class="form-control m-2" placeholder="1234" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="addmotherDateofIssue">Date of Issue </label>
-                                        <input type="date" id="addmotherDateofIssue" name="motherDateofIssue" class="form-control m-2" placeholder="canada" required>
-                                    </div>
-
-                                </div>
-                                <p class="mt-4 text-warning">Details relating to the applicant's srilankan passport:</p>
-                                <hr class="text-secondary mb-3">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <label for="addpasswordNumber">Passport No</label>
-                                        <input type="text" id="addpasswordNumber" name="passwordNumber" class="form-control m-2" placeholder="N3456748685" required>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label for="addpasswordDateIssue">Date of Issue </label>
-                                        <input type="date" id="addpasswordDateIssue" name="passwordDateIssue" class="form-control m-2" placeholder="canada" required>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label for="addpasswordPlaceIssue">Place of Issue </label>
-                                        <input type="text" id="addpasswordPlaceIssue" name="passwordPlaceIssue" class="form-control m-2" placeholder="colombo" required>
-                                    </div>
-
-                                </div>
-                                <p class="mt-4 text-warning">Details relating to the permenent residence status of the applicant:</p>
-                                <hr class="text-secondary mb-3">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label for="addcountry">Country Name</label>
-                                        <input type="text" id="addcountry" name="country" class="form-control m-2" placeholder="Sri lanka" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="adddateGranted">Date of Granted</label>
-                                        <input type="date" id="adddateGranted" name="dateGranted" class="form-control m-2" placeholder="canada" required>
-                                    </div>
-
-                                </div>
-
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                     <button type="submit" class="btn btn-primary" id="add_citizenship_btn">Add citizenship</button>
@@ -273,14 +159,6 @@
                                         <input type="text" id="editaddressInSrilanka" name="addressInSrilanka" class="form-control m-2" placeholder="colombo-05" required>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="editaddressInForeign">Address (Foreign)</label>
-                                        <input type="text" id="editaddressInForeign" name="addressInForeign" class="form-control m-2" placeholder="canada" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="editemail">Email</label>
-                                        <input type="text" id="editemail" name="email" class="form-control m-2" placeholder="john@gmail.com" required>
-                                    </div>
-                                    <div class="col-md-6">
                                         <label for="editcontactNo">Contact</label>
                                         <input type="text" id="editcontactNo" name="contactNo" class="form-control m-2" placeholder="0777123456" required>
                                     </div>
@@ -291,10 +169,6 @@
                                     <div class="col-md-3">
                                         <label for="editdob">Date of birth</label>
                                         <input type="date" id="editdob" name="dob" class="form-control m-2" placeholder="colombo-05" required>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label for="editpob">Place of birth</label>
-                                        <input type="text" id="editpob" name="pob" class="form-control m-2" placeholder="batticaloa" required>
                                     </div>
                                     <div class="col-md-2">
                                         <label for="editbirthNo">Birth No</label>
@@ -335,10 +209,6 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <label for="editnationality">Nationality</label>
-                                        <input type="text" id="editnationality" name="nationality" class="form-control m-2" placeholder="srilanken" required>
-                                    </div>
-                                    <div class="col-md-4">
                                         <label for="editnicNo">NIC (if available)</label>
                                         <input type="text" id="editnicNo" name="nicNo" class="form-control m-2" placeholder="12345678v" required>
                                     </div>
@@ -350,106 +220,7 @@
                                             <option value="Female">Female</option>
                                         </select>
                                     </div>
-                                </div>
-                                <p class="mt-4 text-warning">If married:</p>
-                                <hr class="text-secondary mb-3">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label for="editspouseName">Spouse's Name</label>
-                                        <input type="text" id="editspouseName" name="spouseName" class="form-control m-2" placeholder="john" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="editnationalityOfSpouse">Nationality of the Spouse</label>
-                                        <input type="text" id="editnationalityOfSpouse" name="nationalityOfSpouse" class="form-control m-2" placeholder="canadian" required>
-                                    </div>
-
-                                </div>
-                                <p class="mt-4 text-warning">Details of applicant's parents:</p>
-                                <hr class="text-secondary mb-3">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <label for="editfatherName">Father's Name</label>
-                                        <input type="text" id="editfatherName" name="fatherName" class="form-control m-2" placeholder="jack" required>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label for="editfatherDate_dob">Date of birth</label>
-                                        <input type="date" id="editfatherDate_dob" name="fatherDate_dob" class="form-control m-2" placeholder="canada" required>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label for="editfatherDate_pob">Date of place</label>
-                                        <input type="text" id="editfatherDate_pob" name="fatherDate_pob" class="form-control m-2" placeholder="batticaloa" required>
-                                    </div>
-
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <label for="editmotherName">Mother's Name</label>
-                                        <input type="text" id="editmotherName" name="motherName" class="form-control m-2" placeholder="rose" required>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label for="editmotherDate_dob">Date of birth</label>
-                                        <input type="date" id="editmotherDate_dob" name="motherDate_dob" class="form-control m-2" placeholder="canada" required>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label for="editmotherDate_pob">Date of place</label>
-                                        <input type="text" id="editmotherDate_pob" name="motherDate_pob" class="form-control m-2" placeholder="canada" required>
-                                    </div>
-
-                                </div>
-                                <p class="mt-4 text-warning">If applicant's parents are citizens of sri lanka by registration:</p>
-                                <hr class="text-secondary mb-3">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label for="editfatherCertificateNo">Father certification No</label>
-                                        <input type="text" id="editfatherCertificateNo" name="fatherCertificateNo" class="form-control m-2" placeholder="1234" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="editfatherDateofIssue">Date of Issue </label>
-                                        <input type="date" id="editfatherDateofIssue" name="fatherDateofIssue" class="form-control m-2" placeholder="canada" required>
-                                    </div>
-
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label for="editmotherCertificateNo">Mother certification No</label>
-                                        <input type="text" id="editmotherCertificateNo" name="motherCertificateNo" class="form-control m-2" placeholder="1234" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="editmotherDateofIssue">Date of Issue </label>
-                                        <input type="date" id="editmotherDateofIssue" name="motherDateofIssue" class="form-control m-2" placeholder="canada" required>
-                                    </div>
-
-                                </div>
-                                <p class="mt-4 text-warning">Details relating to the applicant's srilankan passport:</p>
-                                <hr class="text-secondary mb-3">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <label for="editpasswordNumber">Passport No</label>
-                                        <input type="text" id="editpasswordNumber" name="passwordNumber" class="form-control m-2" placeholder="N3456748685" required>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label for="editpasswordDateIssue">Date of Issue </label>
-                                        <input type="date" id="editpasswordDateIssue" name="passwordDateIssue" class="form-control m-2" placeholder="canada" required>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label for="editpasswordPlaceIssue">Place of Issue </label>
-                                        <input type="text" id="editpasswordPlaceIssue" name="passwordPlaceIssue" class="form-control m-2" placeholder="colombo" required>
-                                    </div>
-
-                                </div>
-                                <p class="mt-4 text-warning">Details relating to the permenent residence status of the applicant:</p>
-                                <hr class="text-secondary mb-3">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label for="editcountry">Country Name</label>
-                                        <input type="text" id="editcountry" name="country" class="form-control m-2" placeholder="Sri lanka" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="editdateGranted">Date of Granted</label>
-                                        <input type="date" id="editdateGranted" name="dateGranted" class="form-control m-2" placeholder="canada" required>
-                                    </div>
-
-                                </div>
+                                </div>                                
 
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

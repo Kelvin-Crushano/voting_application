@@ -81,14 +81,14 @@
           <!-- / Navbar -->
 
           <!-- Content wrapper -->
-          <div class="content-wrapper">
+          <div class="content-wrapper" >
             <!-- Content -->
             @yield('gs_content')
 
             <!-- / Content -->
 
             <!-- Footer -->
-            @include('include.footer.footer')
+            {{-- @include('include.footer.footer') --}}
             <!-- / Footer -->
 
             <div class="content-backdrop fade"></div>

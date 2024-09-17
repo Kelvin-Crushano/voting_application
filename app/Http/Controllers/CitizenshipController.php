@@ -4,13 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\citizenship;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use App\Models\divition;
 
 
 class CitizenshipController extends Controller
 {
     public function index()
     {
-        return view('citizenship.citizenship');
+        if(session('gs')){
+            return view('citizenship.citizenship');
+        }else{
+            return redirect('/');
+        }
+        
     }
 
     /**
@@ -26,45 +33,36 @@ class CitizenshipController extends Controller
      */
     public function store(Request $request)
     {
-        $value=5;
-        $citizenshipData = [
-            'citizenshipNo'=>$value,
-            'batch' => $request->batch,
-            'nameWithInitials'=> $request->nameWithInitials,
-            'fullName'=> $request->fullName,
-            'addressInSrilanka'=> $request->addressInSrilanka,
-            'addressInForeign'=> $request->addressInForeign,
-            'email'=> $request->email,
-            'contactNo'=> $request->contactNo,
-            'dob'=> $request->dob,
-            'pob'=> $request->pob,
-            'birthNo'=> $request->birthNo,
-            'district'=> $request->district,
-            'nationality'=> $request->nationality,
-            'nicNo'=> $request->nicNo,
-            'sex'=> $request->sex,
-            'spouseName'=> $request->spouseName,
-            'nationalityOfSpouse'=> $request->nationalityOfSpouse,
-            'fatherName'=> $request->fatherName,
-            'fatherDate_dob'=> $request->fatherDate_dob,
-            'fatherDate_pob'=> $request->fatherDate_pob,
-            'motherName'=> $request->motherName,
-            'motherDate_dob'=> $request->motherDate_dob,
-            'motherDate_pob'=> $request->motherDate_pob,
-            'fatherCertificateNo'=> $request->fatherCertificateNo,
-            'fatherDateofIssue'=> $request->fatherDateofIssue,
-            'motherCertificateNo'=> $request->motherCertificateNo,
-            'motherDateofIssue'=> $request->motherDateofIssue,
-            'passwordNumber'=> $request->passwordNumber,
-            'passwordDateIssue'=> $request->passwordDateIssue,
-            'passwordPlaceIssue'=> $request->passwordPlaceIssue,
-            'country'=> $request->country,
-            'dateGranted'=> $request->dateGranted,
-        ];
-        citizenship::create($citizenshipData);
-        return response()->json([
-            'status' => 200,
-        ]);
+        try {
+            $value=5;
+            $citizenshipData = [
+                'citizenshipNo'=>$value,
+                'batch' => $request->batch,
+                'nameWithInitials'=> $request->nameWithInitials,
+                'fullName'=> $request->fullName,
+                'addressInSrilanka'=> $request->addressInSrilanka,
+                'contactNo'=> $request->contactNo,
+                'dob'=> $request->dob,
+                // 'pob'=> $request->pob,
+                'birthNo'=> $request->birthNo,
+                'district'=> $request->district,
+                'nicNo'=> $request->nicNo,
+                'sex'=> $request->sex,
+                'divition_id'=>$request->divition_id,
+                'password'=> Hash::make($request->birthNo),
+            ];
+            citizenship::create($citizenshipData);
+            return response()->json([
+                'status' => 200,
+            ]);
+        } catch (\Exception $e) {
+            // Handle the exception (e.g., log, return an error response)
+            return response()->json([
+                'status' => 500,
+                'error' => $e->getMessage(),
+            ]);
+        }
+        
     }
 
     /**
@@ -73,6 +71,8 @@ class CitizenshipController extends Controller
     public function show(citizenship $citizenship)
     {
         $citizenships = citizenship::all();
+        
+        $divisions = divition::all();
         $output = '';
         if ($citizenships->count() > 0) {
             $output .= '<div class="table-responsive"><table class="table table-hover table-striped table-sm text-center align-middle">
@@ -82,33 +82,13 @@ class CitizenshipController extends Controller
                         <th>Name with Initial</th>
                         <th>Full Name</th>
                         <th>Address In Srilanka</th>
-                        <th>Address In Foreign</th>
-                        <th>Email</th>
                         <th>Contact No</th>
                         <th>DOB</th>
-                        <th>POB</th>
                         <th>Birth No</th>
                         <th>District</th>
-                        <th>Nationality</th>
                         <th>NIC</th>
                         <th>Sex</th>
-                        <th>Spouse name</th>
-                        <th>Nationality Of Spouse</th>
-                        <th>Father Name</th>
-                        <th>Date Of Father</th>
-                        <th>Place Of Father</th>
-                        <th>Mother Name</th>
-                        <th>Date Of Mother</th>
-                        <th>Place Of Mother</th>
-                        <th>Father Certificate No</th>
-                        <th>Date Of Issue</th>
-                        <th>Mother Certificate No</th>
-                        <th>Date Of Issue</th>
-                        <th>Password No</th>
-                        <th>Date Of Issue</th>
-                        <th>Place Of Issue</th>
-                        <th>Country</th>
-                        <th>Date Of Granted</th>
+                        <th>Division</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -121,33 +101,26 @@ class CitizenshipController extends Controller
                     <td>' . $citizenship->nameWithInitials . '</td>
                     <td>' . $citizenship->fullName . '</td>
                     <td>' . $citizenship->addressInSrilanka . '</td>
-                    <td>' . $citizenship->addressInForeign . '</td>
-                    <td>' . $citizenship->email . '</td>
                     <td>' . $citizenship->contactNo . '</td>
                     <td>' . $citizenship->dob . '</td>
-                    <td>' . $citizenship->pob . '</td>
                     <td>' . $citizenship->birthNo . '</td>
                     <td>' . $citizenship->district . '</td>
-                    <td>' . $citizenship->nationality . '</td>
                     <td>' . $citizenship->nicNo . '</td>
                     <td>' . $citizenship->sex . '</td>
-                    <td>' . $citizenship->spouseName . '</td>
-                    <td>' . $citizenship->nationalityOfSpouse . '</td>
-                    <td>' . $citizenship->fatherName . '</td>
-                    <td>' . $citizenship->fatherDate_dob . '</td>
-                    <td>' . $citizenship->fatherDate_pob . '</td>
-                    <td>' . $citizenship->motherName . '</td>
-                    <td>' . $citizenship->motherDate_dob . '</td>
-                    <td>' . $citizenship->motherDate_pob . '</td>
-                    <td>' . $citizenship->fatherCertificateNo . '</td>
-                    <td>' . $citizenship->fatherDateofIssue . '</td>
-                    <td>' . $citizenship->motherCertificateNo . '</td>
-                    <td>' . $citizenship->motherDateofIssue . '</td>
-                    <td>' . $citizenship->passwordNumber . '</td>
-                    <td>' . $citizenship->passwordDateIssue . '</td>
-                    <td>' . $citizenship->passwordPlaceIssue . '</td>
-                    <td>' . $citizenship->country . '</td>
-                    <td>' . $citizenship->dateGranted . '</td>
+                    <td>';
+
+                    foreach ($divisions as $division) {
+                        if ($division->id == $citizenship->divition_id) {
+                            $output .= $division->name;
+                            $divisionFound = true;
+                            break;
+                        }
+                    }
+
+                    if (!isset($divisionFound)) {
+                        $output .= '<span style="color: red;">None</span>';
+                    }
+                    $output .= '</td>
 
                     <td>
                     <div class="dropdown">
@@ -198,33 +171,12 @@ class CitizenshipController extends Controller
             'nameWithInitials'=> $request->nameWithInitials,
             'fullName'=> $request->fullName,
             'addressInSrilanka'=> $request->addressInSrilanka,
-            'addressInForeign'=> $request->addressInForeign,
-            'email'=> $request->email,
             'contactNo'=> $request->contactNo,
             'dob'=> $request->dob,
-            'pob'=> $request->pob,
             'birthNo'=> $request->birthNo,
             'district'=> $request->district,
-            'nationality'=> $request->nationality,
             'nicNo'=> $request->nicNo,
             'sex'=> $request->sex,
-            'spouseName'=> $request->spouseName,
-            'nationalityOfSpouse'=> $request->nationalityOfSpouse,
-            'fatherName'=> $request->fatherName,
-            'fatherDate_dob'=> $request->fatherDate_dob,
-            'fatherDate_pob'=> $request->fatherDate_pob,
-            'motherName'=> $request->motherName,
-            'motherDate_dob'=> $request->motherDate_dob,
-            'motherDate_pob'=> $request->motherDate_pob,
-            'fatherCertificateNo'=> $request->fatherCertificateNo,
-            'fatherDateofIssue'=> $request->fatherDateofIssue,
-            'motherCertificateNo'=> $request->motherCertificateNo,
-            'motherDateofIssue'=> $request->motherDateofIssue,
-            'passwordNumber'=> $request->passwordNumber,
-            'passwordDateIssue'=> $request->passwordDateIssue,
-            'passwordPlaceIssue'=> $request->passwordPlaceIssue,
-            'country'=> $request->country,
-            'dateGranted'=> $request->dateGranted,
         ];
        $citizenships->update($citizenshipData);
        return response()->json([

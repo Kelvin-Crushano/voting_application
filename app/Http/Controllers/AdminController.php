@@ -22,17 +22,19 @@ class AdminController extends Controller
             $voteUser = vote::where('citizen_nic', $request->nicNo)->count();
             if($voteUser > 0)
             {
-                echo 'You Already Voted';
+                return response()->json(['error' => true,'message' => 'You Already Voted']);
             }
             else
-            {
-                echo 'You Can Put Vote';
-                return redirect('/party1');
+            {                
+                session(['nicNo' => $request->nicNo]);
+                return response()->json(['message' => 'You are eligible', 'redirect' => '/party1']);
             }
         }
         else
         {
-            echo 'You are nit eligible';
+            return response()->json(['error' => true,'message' => 'You are not eligible']);
         }
+
+        
     }
 }

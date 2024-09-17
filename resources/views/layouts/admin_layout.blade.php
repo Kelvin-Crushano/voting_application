@@ -88,7 +88,7 @@
             <!-- / Content -->
 
             <!-- Footer -->
-            @include('include.footer.footer')
+            {{-- @include('include.footer.footer') --}}
             <!-- / Footer -->
 
             <div class="content-backdrop fade"></div>

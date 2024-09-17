@@ -8,14 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class vote extends Model
 {
     use HasFactory;
-    protected $fillable=[
+    protected $fillable=[ 
 
         'citizen_nic',
-        'party_no1',
+        'party_no',
         'candidate_no1',
-        'party_no2',
         'candidate_no2',
-        'party_no3',
         'candidate_no3',
         'gsProvince',
         'gsDistrict',

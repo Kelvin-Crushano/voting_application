@@ -132,7 +132,7 @@
                     </svg>
                   </span>
                   <span class="app-brand-text demo text-body fw-bolder">Admin Register</span>
-                </a>
+                </a> 
               </div>
               <!-- /Logo -->
               <h4 class="mb-2">Adventure starts here 🚀</h4>

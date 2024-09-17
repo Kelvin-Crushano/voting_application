@@ -8,9 +8,14 @@ use Illuminate\Support\Facades\Storage;
 
 class CandidateController extends Controller
 {
-      public function index()
+    public function index()
     {
-        return view('candidate.candidate');
+        if(session('admin')){
+            return view('candidate.candidate');
+        }else{
+            return redirect('/');
+        }
+        
     }
 
     public function store(Request $request)
@@ -132,6 +137,7 @@ class CandidateController extends Controller
 			'status' => 200,
 		]);
 	}
+    
 
 
     public function delete(Request $request)

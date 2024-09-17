@@ -10,6 +10,7 @@ class candidate extends Model
     use HasFactory;
     protected $fillable=[
 
+        'id',
         'code',
         'name',
         'description',

@@ -4,41 +4,25 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
-class citizenship extends Model
+class citizenship extends Authenticatable
 {
-    use HasFactory;
+    use HasApiTokens, HasFactory, Notifiable;
+    protected $guard = 'vote_users';
     protected $fillable=[
         'nameWithInitials',
         'fullName',
         'addressInSrilanka',
-        'addressInForeign',
-        'email',
         'contactNo',
         'dob',
-        'pob',
         'birthNo',
         'district',
-        'nationality',
         'nicNo',
         'sex',
-        'spouseName',
-        'nationalityOfSpouse',
-        'fatherName',
-        'fatherDate_dob',
-        'fatherDate_pob',
-        'motherName',
-        'motherDate_dob',
-        'motherDate_pob',
-        'fatherCertificateNo',
-        'fatherDateofIssue',
-        'motherCertificateNo',
-        'motherDateofIssue',
-        'passwordNumber',
-        'passwordDateIssue',
-        'passwordPlaceIssue',
-        'country',
-        'dateGranted',
-        'citizenshipNo',
+        'divition_id',
+        'password',
     ];
 }

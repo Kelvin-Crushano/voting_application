@@ -44,7 +44,7 @@ id="layout-navbar"
   <ul class="navbar-nav flex-row align-items-center ms-auto">
     <!-- Place this tag where you want the button to render. -->
     <li class="nav-item lh-1 me-3">
-        <span class="fw-semibold d-block">John Doe</span>
+        <span class="fw-semibold d-block">{{Auth::guard('admin')->user()->name}}</span>
     </li>
 
     <!-- User -->
@@ -65,7 +65,7 @@ id="layout-navbar"
                 </div>
               </div>
               <div class="flex-grow-1">
-                <span class="fw-semibold d-block">John Doe</span>
+                <span class="fw-semibold d-block">{{Auth::guard('admin')->user()->email}}</span>
                 <small class="text-muted">Admin</small>
               </div>
             </div>
@@ -84,10 +84,15 @@ id="layout-navbar"
           <div class="dropdown-divider"></div>
         </li>
         <li>
-          <a class="dropdown-item" href="">
+          <a class="dropdown-item" href="{{ route('admin_logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
             <i class="bx bx-power-off me-2"></i>
             <span class="align-middle">Log Out</span>
           </a>
+
+          <!-- Add a hidden form to handle the logout action -->
+          <form id="logout-form" action="{{ route('admin_logout') }}" method="POST" style="display: none;">
+            @csrf
+          </form>
         </li>
       </ul>
     </li>

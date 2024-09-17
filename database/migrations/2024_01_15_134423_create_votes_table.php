@@ -14,11 +14,9 @@ return new class extends Migration
         Schema::create('votes', function (Blueprint $table) {
             $table->id();
             $table->string('citizen_nic')->nullable();
-            $table->string('party_no1')->nullable();
+            $table->string('party_no')->nullable();
             $table->string('candidate_no1')->nullable();
-            $table->string('party_no2')->nullable();
             $table->string('candidate_no2')->nullable();
-            $table->string('party_no3')->nullable();
             $table->string('candidate_no3')->nullable();
             $table->string('gsProvince')->nullable();
             $table->string('gsDistrict')->nullable();

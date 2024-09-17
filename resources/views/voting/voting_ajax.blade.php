@@ -13,37 +13,44 @@
 <script>
     $(function() {
 
-  // add new province ajax request
-  $("#add_voting_form").submit(function(e) {
-        e.preventDefault();
-        const fd = new FormData(this);
-        $("#add_vote_btn").text('Checking vote...');
-        $.ajax({
-          url: '{{ route('vote_store') }}',
-          method: 'post',
-          data: fd,
-          cache: false,
-          contentType: false,
-          processData: false,
-          dataType: 'json',
-          success: function(response) {
-            if (response.status == 200) {
-              Swal.fire({
-                icon: "success",
-                title: "You are eligible for votting!",
-                showConfirmButton: false,
-                timer: 1500
-                     });
-            }
-            $("#add_vote_btn").text('Checking');
-            $("#add_voting_form")[0].reset(); // Reset the form
-            $("#votingModal").modal('hide');
+      // add new province ajax request
+      $("#add_voting_form").submit(function(e) {
 
-          }
-        });
+        alert('tested')
+            e.preventDefault();
+            const fd = new FormData(this);
+            $("#add_vote_btn").text('Checking vote...');
+            $.ajax({
+              url: '{{ route('vote_store') }}',
+              method: 'post',
+              data: fd,
+              cache: false,
+              contentType: false,
+              processData: false,
+              dataType: 'json',
+              success: function(response) {
+                if (response.status == 200) {
+                  Swal.fire({
+                    icon: "success",
+                    title: "You are eligible for votting!",
+                    showConfirmButton: false,
+                    timer: 1500
+                        });
+                }
+                $("#add_vote_btn").text('Checking');
+                $("#add_voting_form")[0].reset(); // Reset the form
+                $("#votingModal").modal('hide');
+
+              }
+            });
+          });
+
       });
-
-  });
+  
 
   
   </script>
+
+
+
+

@@ -203,39 +203,26 @@
           </li>
         </ul>
       </li>
-      <li class="menu-item">
-        <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon tf-icons bx bx-layout"></i>
-          <div data-i18n="Layouts">lead member assign</div>
-        </a>
-
-        <ul class="menu-sub">
-          <li class="menu-item">
-            <a href="" class="menu-link">
-              <div data-i18n="Without menu">member assign</div>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="" class="menu-link">
-              <div data-i18n="Without menu">member assign list</div>
-            </a>
-          </li>
-        </ul>
-      </li>
 
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon tf-icons bx bx-layout"></i>
-          <div data-i18n="Layouts">member status</div>
+          <div data-i18n="Layouts">Vote Counts</div>
         </a>
 
         <ul class="menu-sub">
           <li class="menu-item">
-            <a href="" class="menu-link">
-              <div data-i18n="Without menu">member assign admin list</div>
+            <a href="{{ route('partyVoteCount') }}" class="menu-link">
+              <div data-i18n="Without menu">Party vote counts</div>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="{{ route('candidateVoteCount') }}" class="menu-link">
+              <div data-i18n="Without menu">Candidate vote counts</div>
             </a>
           </li>
         </ul>
       </li>
+      
     </ul>
   </aside>

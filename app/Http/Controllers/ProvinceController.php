@@ -9,7 +9,11 @@ class ProvinceController extends Controller
 {
     public function index()
     {
-        return view('province.province');
+        if(session('admin')){
+            return view('province.province');
+        }else{
+            return redirect('/');
+        }
     }
 
     public function store(Request $request)
