@@ -108,7 +108,7 @@
         href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/"
         target="_blank"
         class="btn btn-danger btn-buy-now"
-        >Marazin.lk</a
+        >Srilanka.lk</a
       >
     </div> --}}
 
