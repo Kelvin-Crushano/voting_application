@@ -1,0 +1,10 @@
+After migrated the table.
+
+Execute this query in the database:
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`)
+ VALUES (NULL, 'Admin', 'admin@admin.com', NULL, '$2y$12$wzZbnvPi7hzXXKmPxDLqWO5D6OmS2/PipAZd4fI9Q6VmqKSrJBIPu', NULL, NULL, NULL)
+
+
+email: admin@admin.com
+password: 123
